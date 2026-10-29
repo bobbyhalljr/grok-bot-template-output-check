@@ -1,0 +1,171 @@
+<p>You import a Bot called Research Assistant.</p>
+<p>The name is good. The instructions look thoughtful. It knows how to search, summarize, and prepare a report.</p>
+<p>Then you give it the most expensive instruction in knowledge work:</p>
+<p>“Keep me updated.”</p>
+<p>Updated about what? How often? From which sources? What deserves your attention? When is it finished?</p>
+<p>A template can bring a useful method. You still have to give that method somewhere to land.</p>
+<p><strong>The way to get more out of Grok Bot is to make useful work repeatable, then stop repeating the work that produces nothing you use.</strong></p>
+<p>Here is how I would take a template from interesting to dependable. This is a documentation-based guide, checked October 29, 2026. The starter briefs and TypeScript example below are my own, not official gallery templates or a Grok Bot integration. I have not measured token or billing savings.</p>
+<p><img alt="A template becomes useful through a specific assignment, a checked result, and a deliberate repeat." src="https://dev-to-uploads.s3.us-east-2.amazonaws.com/uploads/articles/wkh7pt72hbkz4w1u2h09.png" /></p>
+<h2>Start with the output you want to open</h2>
+<p>Before browsing templates, write one sentence:</p>
+<blockquote>
+<p>Every Friday, I want a short release brief that tells me what shipped, what is blocked, and which decision needs me, with links I can check.</p>
+</blockquote>
+<p>That sentence makes the choice easier. A good template is one whose method fits your job and whose required tools you can actually provide.</p>
+<p>I would look for a clear purpose, readable instructions, a useful output example, and an obvious stopping point. A fancy role name tells me very little about any of those.</p>
+<p>According to the <a href="https://docs.x.ai/grok-bot/bots">current Bot documentation</a>, open <strong>Connect apps → Bot templates</strong> to browse, then open a template and choose <strong>Import Bot</strong>. Importing creates your own copy; it does not bring the creator’s computer, sign-ins, or conversation history. Shared templates come from other users. Inspect what you are adopting and which access the job needs.</p>
+<p>If you cannot find a good fit, you can start with a focused Bot and the brief below. You do not need to force your work into someone else’s workflow.</p>
+<h2>Give the imported Bot a local operating brief</h2>
+<p>I use six fields. They turn a broad role into a job someone can review.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Question to answer</th>
+<th>Release brief example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Outcome</td>
+<td>What will I open?</td>
+<td>One Markdown brief</td>
+</tr>
+<tr>
+<td>Inputs</td>
+<td>Which sources count?</td>
+<td>This repository and this milestone</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>How much work belongs here?</td>
+<td>One release window, at most ten items</td>
+</tr>
+<tr>
+<td>Evidence</td>
+<td>How can I check it?</td>
+<td>A direct link for every shipped or blocked item</td>
+</tr>
+<tr>
+<td>Stop point</td>
+<td>What waits for me?</td>
+<td>Publishing and external messages</td>
+</tr>
+<tr>
+<td>Failure</td>
+<td>What happens when a source fails?</td>
+<td>Report the missing source; do not invent a clean bill of health</td>
+</tr>
+</tbody>
+</table>
+<p>Here is a complete first message you can adapt:</p>
+<pre><code class="language-text">Own the release brief for [repository] and [milestone].
+
+For this first run, use the release window [start] through [end],
+in [time zone]. Read only the issues, pull requests, and release
+notes linked in this message. Review at most ten items.
+
+Return one Markdown document with:
+- Shipped: what changed and its source link.
+- Blocked: the blocker, owner if stated, and source link.
+- Decisions: what I need to decide, with the supporting evidence.
+- Coverage: sources checked, checked-at times, and missing access.
+
+Distinguish merged code from a verified production release.
+Do not change issues, merge code, publish, or message anyone.
+If a source is unavailable, report the gap and stop that part.
+Finish with the document and one sentence saying what remains.
+
+Remember the stable job and boundaries. Treat this release
+window and milestone as inputs for this run only.
+</code></pre>
+<p>Replace every bracket before sending it. Supply links you are allowed to use. Start with one repository, not your entire engineering organization.</p>
+<p>The ten-item cap is a review aid I chose for this example. It is not a product limit, a token budget, or an instruction to silently skip the rest. Ask the Bot to report overflow so you can choose the next batch.</p>
+<h2>Try the awkward input before scheduling</h2>
+<p>A polished result on a tidy example proves surprisingly little.</p>
+<p>Give the Bot a second input where something is missing. An inaccessible issue. A release with no deployment evidence. A milestone with no matching changes.</p>
+<p>I want it to say “I could not verify deployment” when that is the truth. I want an empty result to include what it actually checked. I want partial work to stay partial.</p>
+<p>The <a href="https://docs.x.ai/grok-bot/skills-routines-and-automations">official skills and routines guide</a> distinguishes the reusable method, a skill, from the trigger, a routine. Its recommended progression is to make a one-time task reliable before saving and automating it.</p>
+<p>My acceptance test would be simple: could a teammate understand the result, open its evidence, and make the next decision without reconstructing the conversation?</p>
+<p>If the answer is no, fix the brief before increasing the frequency.</p>
+<p><img alt="A first task produces evidence. A second test checks failure handling. Only a useful result becomes a recurring routine." src="https://dev-to-uploads.s3.us-east-2.amazonaws.com/uploads/articles/7se6og0mkf8o13sk2occ.png" /></p>
+<h2>Three jobs I would start with</h2>
+<p>These are original starter briefs you can paste into an appropriate Bot after supplying your sources. They are also included as separate files in the companion package.</p>
+<p><strong>A release brief</strong> is useful when the hard part is sorting shipped work from unfinished work. Use the full brief above. Ask for source links and distinguish a merge from a deployed result. Review it before anyone sends an announcement.</p>
+<p><strong>A focused research watch</strong> is useful when you keep checking the same small set of sources:</p>
+<pre><code class="language-text">Watch these three official sources: [links]. For this test,
+review changes between [start] and [end]. Return at most five
+items relevant to [specific product decision]. Include the
+source, date, what changed, and why it matters to that decision.
+Separate a documented fact from your inference. Report any
+source you could not check. If nothing relevant changed, return
+a short coverage note. Do not post, subscribe, or contact anyone.
+</code></pre>
+<p><strong>A bug reproduction pack</strong> is useful when reports keep arriving without enough context:</p>
+<pre><code class="language-text">Use this issue [link] and this staging environment [URL]. Try to
+reproduce the reported behavior with a test account. Return the
+steps tried, expected versus actual behavior, screenshots or
+logs, and environment details. If you cannot reproduce it, say
+so and show what you tried. Do not touch production data, change
+permissions, or contact the reporter. Stop at the repro pack.
+</code></pre>
+<p>Keep credentials out of the brief. Use the product’s secure sign-in flow when access is needed. The <a href="https://docs.x.ai/grok-bot/computer-and-apps">computer and apps documentation</a> also explains that installing an app and successfully authenticating it are different states. Check access with a small read before assigning the full job.</p>
+<h2>Getting more out of usage starts with fewer useless runs</h2>
+<p>I would optimize for a result I can use, not a Bot that is always busy.</p>
+<p>A weekly release brief may be enough if your release meeting happens on Friday. A research watch might need a narrow event trigger instead of an hourly sweep. Choose the cadence around the decision the output supports.</p>
+<p>The <a href="https://docs.x.ai/grok-bot/skills-routines-and-automations">routine documentation</a> says runs spend usage and warns that frequent schedules or broad triggers can consume it quickly. Hiding a Bot in the sidebar does not pause its routines, according to the <a href="https://docs.x.ai/grok-bot/bots">Bot management guide</a>. Inspect active routines explicitly.</p>
+<p>For the first few runs, I would keep a small ledger:</p>
+<table>
+<thead>
+<tr>
+<th>Run</th>
+<th>Was the output usable?</th>
+<th>What needed correction?</th>
+<th>What should change next time?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Example A</td>
+<td>Partial</td>
+<td>No deployment evidence</td>
+<td>Add the release-status source</td>
+</tr>
+<tr>
+<td>Example B</td>
+<td>Yes</td>
+<td>Two irrelevant items</td>
+<td>Narrow the relevance rule</td>
+</tr>
+<tr>
+<td>Example C</td>
+<td>No</td>
+<td>Source unavailable</td>
+<td>Repair access before another run</td>
+</tr>
+</tbody>
+</table>
+<p>Those rows are illustrative, not observed Grok Bot results.</p>
+<p>Check the actual usage view available on your account. The <a href="https://docs.x.ai/grok-bot/faq">FAQ</a> describes different billing arrangements for The X Subscription and legacy Cursor plans. A run count or a longer answer does not tell you the bill. I would not claim a percentage saving without measuring comparable tasks against the account’s own usage reporting.</p>
+<p>A routine that keeps failing access checks does not need more ambition. It needs its access repaired or its schedule paused.</p>
+<h2>A small check before you call the result done</h2>
+<p>The companion TypeScript example, with 25 passing tests, validates a release brief against an explicit contract: source evidence, a release window, item limits, missing sources, and a review-only delivery state.</p>
+<p>It can distinguish a complete empty brief from an empty brief that never checked its sources. It rejects duplicate items and out-of-window claims. It reports missing sources as partial coverage rather than success.</p>
+<pre><code class="language-ts">const result = validateBrief(brief, contract);
+// { status: 'ready' | 'partial' | 'invalid', errors: string[] }
+</code></pre>
+<p>This is a local teaching example. It does not call Grok Bot, enforce its permissions, verify that a linked claim is true, or estimate usage. The checks make the expected output explicit. A human still has to inspect the evidence.</p>
+<p>Run it with Node 22.18 or newer:</p>
+<pre><code class="language-sh">git clone https://github.com/bobbyhalljr/grok-bot-template-output-check.git
+cd grok-bot-template-output-check
+npm test
+npm run demo
+</code></pre>
+<p><a href="https://github.com/bobbyhalljr/grok-bot-template-output-check">Get the complete code, tests, and starter briefs on GitHub</a>.</p>
+<h2>Keep the useful parts, change the assignment</h2>
+<p>After two reviewable runs, ask the Bot to preserve the method as a skill. Keep changing dates, repositories, and milestones in the next assignment rather than baking yesterday’s inputs into a permanent job.</p>
+<p>Before sharing a template of your own, inspect the exported configuration for anything private. A public template is something other people can open. Review what it contains, not just its title.</p>
+<p>This is the part of agent engineering I keep returning to in <a href="https://bhjr.dev/courses/ship-a-safe-agent">Ship a Safe Agent</a>: define the result, check the evidence, and make the stopping point real. Module 1 and its walkthrough are free.</p>
+<p>A useful template shortens the distance to a good first result.</p>
+<p>Your first assignment determines whether you ever get a second one worth repeating.</p>

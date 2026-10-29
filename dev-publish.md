@@ -1,5 +1,7 @@
 
-[Watch the narrated guide](video/grok-bot-templates-16x9-1x.mp4) · Bobby-alt, normal 1x speed, captions included.
+{% youtube LYx4Sm8FzLM %}
+
+Bobby-alt narration, normal 1x speed, captions included.
 
 You import a Bot called Research Assistant.
 
@@ -17,7 +19,7 @@ A template can bring a useful method. You still have to give that method somewhe
 
 Here is how I would take a template from interesting to dependable. This is a documentation-based guide, checked October 29, 2026. The starter briefs and TypeScript example below are my own, not official gallery templates or a Grok Bot integration. I have not measured token or billing savings.
 
-![A template becomes useful through a specific assignment, a checked result, and a deliberate repeat.](https://dev-to-uploads.s3.us-east-2.amazonaws.com/uploads/articles/wkh7pt72hbkz4w1u2h09.png)
+<img src="https://dev-to-uploads.s3.us-east-2.amazonaws.com/uploads/articles/wkh7pt72hbkz4w1u2h09.png" alt="A template becomes useful through a specific assignment, a checked result, and a deliberate repeat." width="1600" height="900">
 
 ## Start with the output you want to open
 
@@ -88,7 +90,7 @@ My acceptance test would be simple: could a teammate understand the result, open
 
 If the answer is no, fix the brief before increasing the frequency.
 
-![A first task produces evidence. A second test checks failure handling. Only a useful result becomes a recurring routine.](https://dev-to-uploads.s3.us-east-2.amazonaws.com/uploads/articles/7se6og0mkf8o13sk2occ.png)
+<img src="https://dev-to-uploads.s3.us-east-2.amazonaws.com/uploads/articles/7se6og0mkf8o13sk2occ.png" alt="A first task produces evidence. A second test checks failure handling. Only a useful result becomes a recurring routine." width="1920" height="1200">
 
 ## Three jobs I would start with
 

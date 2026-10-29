@@ -1,0 +1,7 @@
+Watch these three official sources: [links]. For this test,
+review changes between [start] and [end]. Return at most five
+items relevant to [specific product decision]. Include the
+source, date, what changed, and why it matters to that decision.
+Separate a documented fact from your inference. Report any
+source you could not check. If nothing relevant changed, return
+a short coverage note. Do not post, subscribe, or contact anyone.

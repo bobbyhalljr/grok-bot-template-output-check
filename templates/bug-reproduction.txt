@@ -1,0 +1,6 @@
+Use this issue [link] and this staging environment [URL]. Try to
+reproduce the reported behavior with a test account. Return the
+steps tried, expected versus actual behavior, screenshots or
+logs, and environment details. If you cannot reproduce it, say
+so and show what you tried. Do not touch production data, change
+permissions, or contact the reporter. Stop at the repro pack.

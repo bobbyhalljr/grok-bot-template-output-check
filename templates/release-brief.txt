@@ -1,0 +1,19 @@
+Own the release brief for [repository] and [milestone].
+
+For this first run, use the release window [start] through [end],
+in [time zone]. Read only the issues, pull requests, and release
+notes linked in this message. Review at most ten items.
+
+Return one Markdown document with:
+- Shipped: what changed and its source link.
+- Blocked: the blocker, owner if stated, and source link.
+- Decisions: what I need to decide, with the supporting evidence.
+- Coverage: sources checked, checked-at times, and missing access.
+
+Distinguish merged code from a verified production release.
+Do not change issues, merge code, publish, or message anyone.
+If a source is unavailable, report the gap and stop that part.
+Finish with the document and one sentence saying what remains.
+
+Remember the stable job and boundaries. Treat this release
+window and milestone as inputs for this run only.
